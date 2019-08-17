@@ -122,6 +122,11 @@ def get_arguments(args=None):
         "-o", "--output", type=str, default=default_output,
         help="Output filename. Defaults to \"{}\"".format(default_output),
     )
+    parser.add_argument(
+        "-d", "--directory", type=str,
+        required=False,
+        help="Trim every video in the directory listed"
+    )
     # Make ffmpeg_path required only if shutil doesn't find it.
     ffmpeg_path = shutil.which("ffmpeg")
     parser.add_argument(
@@ -138,7 +143,16 @@ def get_arguments(args=None):
 
 def main():
     args = get_arguments()
-    trim_clip(args.ffmpeg_path, args.input, args.output)
+    if args.directory:
+        path = pathlib.Path(args.directory)
+        untrimmed_paths = path.iterdir()
+        for p in untrimmed_paths:
+            input_filename = str(p)
+            output_filename = fix_highlight_name(p)
+            print("Trimming {}...".format(input_filename))
+            trim_clip(args.ffmpeg_path, input_filename, output_filename)
+    else:
+        trim_clip(args.ffmpeg_path, args.input, args.output)
 
 
 if __name__ == "__main__":

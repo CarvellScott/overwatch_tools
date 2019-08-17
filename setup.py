@@ -22,21 +22,23 @@ setup(
     url='https://github.com/CarvellScott/overwatch_tools',
     author='CarvellScott',
     author_email='carvell.scott@gmail.com',
+    install_requires=[
+        "PyAutoGUI==0.9.47"
+    ],
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Users',
         'Topic :: Games :: Social Media Tools',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
     ],
     keywords='overwatch',
     packages=find_packages(exclude=['contrib', 'docs', 'tests']),
     entry_points={
         "console_scripts": [
-            "highlight-trimmer=overwatch_tools.highlight_trimmer:main",
+            "ow-highlight-trimmer=overwatch_tools.highlight_trimmer:main",
+            "ow-game-loader=overwatch_tools.game_loader:main",
         ],
     },
     project_urls={
