@@ -15,11 +15,11 @@ It should be known that Blizzard has a [very strong stance against third-party a
 ## Installation
 
 - Clone the repository to wherever you feel comfortable. Or download the zip and extract it somewhere.
-    $ git clone https://github.com/CarvellScott/overwatch_tools.git
+    `$ git clone https://github.com/CarvellScott/overwatch_tools.git`
 - Change directories into overwatch_tools.:
-    $ cd overwatch_tools
+    `$ cd overwatch_tools`
 - Finally pip install . to install it from the setup.py file.
-    $ pip install .
+    `$ pip install .`
 
 ## Usage:
     
